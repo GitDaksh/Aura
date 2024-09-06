@@ -1,11 +1,14 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const User = require('./models/user'); 
+const path = require('path');  
+const User = require('./models/user');
+const cors = require('cors');
+
 
 const app = express();
-const port = 3000;
-
+const port = process.env.PORT || 3000;  
+app.use(cors());
 mongoose.connect('mongodb://localhost:27017/mydatabase', {
   useNewUrlParser: true,
   useUnifiedTopology: true
@@ -16,14 +19,27 @@ mongoose.connect('mongodb://localhost:27017/mydatabase', {
 app.use(bodyParser.json());
 
 app.post('/users', async (req, res) => {
-  try {
-    const user = new User(req.body);
-    const savedUser = await user.save();
-    res.status(201).json(savedUser);
-  } catch (error) {
-    res.status(400).json({ message: error.message });
-  }
-});
+    try {
+      const { name, email, password } = req.body;
+  
+      let user = await User.findOne({ email });
+      if (user) {
+        return res.status(400).json({ message: 'User already exists' });
+      }
+  
+      user = new User({
+        name,
+        email,
+        password
+      });
+  
+      const savedUser = await user.save();
+      res.status(201).json(savedUser);
+    } catch (error) {
+      res.status(400).json({ message: error.message });
+    }
+  });
+  
 
 app.get('/users', async (req, res) => {
   try {
@@ -69,6 +85,14 @@ app.delete('/users/:id', async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, 'frontend', 'build')));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
+  });
+}
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
