@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import userService from '../services/userService';
+import axios from 'axios'; 
+import '/Users/dakshpushpad/Documents/GitHub/Aura/aura-frontend/src/styles.css';
 
 const Login = () => {
     const [formData, setFormData] = useState({
@@ -16,12 +17,14 @@ const Login = () => {
     const onSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await userService.login({ email, password });
+            const response = await axios.post('http://localhost:3000/login', { email, password });
+            const token = response.data.token;
+            localStorage.setItem('token', token);  
             alert('Login successful');
-            console.log(response);
+            window.location.href = '/';  
         } catch (error) {
             alert('Error during login');
-            console.error(error.message);
+            console.error(error.response?.data?.message || error.message);
         }
     };
 

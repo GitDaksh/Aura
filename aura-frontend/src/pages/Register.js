@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import userService from '../services/userService'; 
+import axios from 'axios';
+import '../styles.css';
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -17,9 +18,9 @@ const Register = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await userService.register({ name, email, password });
+      const response = await axios.post('http://localhost:3000/users', { name, email, password });
       alert('Registration successful');
-      console.log(response);
+      console.log(response.data);
     } catch (error) {
       alert('Error during registration');
       console.error(error.message);
@@ -62,6 +63,7 @@ const Register = () => {
         </div>
         <button type="submit">Register</button>
       </form>
+      <a href="/login">Already have an account? Login</a>
     </div>
   );
 };
