@@ -1,0 +1,149 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: #f0e6ff; 
+    color: #3e1e5f; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  
+  .container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(62, 30, 95, 0.1);
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    color: #3e1e5f; 
+    font-weight: 600;
+  }
+  
+  button {
+    background-color: #8c6abf; 
+    border: none;
+    padding: 15px 25px;
+    font-size: 1.1rem;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 20px;
+    width: 100%;
+    margin-top: 25px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  button:hover {
+    background-color: #7a4f9c; 
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(122, 79, 156, 0.3);
+  }
+  
+  a {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #8c6abf; 
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-weight: 500;
+  }
+  
+  a:hover {
+    color: #3e1e5f; 
+  }
+  
+  .login-page, .register-page {
+    background-color: #ffffff; 
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(62, 30, 95, 0.1);
+    max-width: 400px;
+    margin: auto;
+  }
+  
+  .login-page h2, .register-page h2 {
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    color: #3e1e5f; 
+  }
+  
+  .login-page form, .register-page form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .login-page div, .register-page div {
+    margin-bottom: 20px;
+  }
+  
+  .login-page label, .register-page label {
+    font-size: 1rem;
+    color: #3e1e5f; 
+    margin-bottom: 8px;
+    display: block;
+    font-weight: 500;
+  }
+  
+  .login-page input, .register-page input {
+    padding: 12px 15px;
+    border: 2px solid #e0d8f0; 
+    border-radius: 20px;
+    font-size: 1rem;
+    width: 100%;
+    background-color: #ffffff; 
+    color: #3e1e5f; 
+    transition: all 0.3s ease;
+  }
+  
+  .login-page input:focus, .register-page input:focus {
+    outline: none;
+    border-color: #8c6abf; 
+    box-shadow: 0 0 0 3px rgba(140, 106, 191, 0.1);
+  }
+  
+  .home-page {
+    text-align: center;
+  }
+  
+  .home-page h1 {
+    font-size: 3rem;
+    margin-bottom: 30px;
+    color: #3e1e5f; 
+  }
+  
+  .home-page button {
+    background-color: #8c6abf;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    color: white;
+    cursor: pointer;
+    border-radius: 20px;
+    margin: 10px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+  }
+  
+  .home-page button:hover {
+    background-color: #7a4f9c; 
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(122, 79, 156, 0.3);
+  }
