@@ -61,10 +61,11 @@ app.post('/login', async (req, res) => {
 
     const payload = { userId: user._id };
     const token = jwt.sign(payload, 'yourJWTSecret', { expiresIn: '1h' });
-    res.json({ token });
+    res.json({ token, userId: user._id });
+
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Server error' });
+    console.error('Login error:', error);
+    res.status(500).json({ message: 'Server error during login' });
   }
 });
 
@@ -89,6 +90,16 @@ app.get('/users/:id', async (req, res) => {
   }
 });
 
+app.get('/users/me', auth, async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id).select('-password');
+    res.json(user);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send('Server Error');
+  }
+});
+
 app.put('/users/:id', async (req, res) => {
   try {
     const user = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -101,15 +112,24 @@ app.put('/users/:id', async (req, res) => {
   }
 });
 
-app.delete('/users/:id', async (req, res) => {
+app.delete('/users/:id', auth, async (req, res) => {
   try {
-    const user = await User.findByIdAndDelete(req.params.id);
+    const user = await User.findById(req.params.id);
+
     if (!user) {
-      return res.status(404).json({ message: 'User not found' });
+      return res.status(404).json({ msg: 'User not found' });
     }
-    res.status(200).json({ message: 'User deleted' });
+
+    if (user._id.toString() !== req.user.id) {
+      return res.status(401).json({ msg: 'User not authorized' });
+    }
+
+    await user.remove();
+
+    res.json({ msg: 'User deleted' });
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    console.error(error.message);
+    res.status(500).send('Server Error');
   }
 });
 
