@@ -1,0 +1,45 @@
+{
+    "Tech": {
+        "Software Development": ["Frontend Development", "Backend Development", "Full Stack", "DevOps"],
+        "Artificial Intelligence": ["Machine Learning", "Deep Learning", "Natural Language Processing", "Computer Vision"],
+        "Cybersecurity": ["Network Security", "Data Security", "Penetration Testing", "Cryptography"],
+        "Cloud Computing": ["AWS", "Azure", "Google Cloud", "Cloud Security"],
+        "Data Science": ["Data Analysis", "Data Visualization", "Big Data", "Statistics"]
+    },
+    "Entertainment": {
+        "Movies": ["Sci-Fi", "Drama", "Action", "Horror", "Romantic", "Documentary", "Animated"],
+        "TV Shows": ["Comedy", "Thriller", "Fantasy", "Documentary", "Drama", "Reality"],
+        "Music": ["Pop", "Rock", "Jazz", "Classical", "Hip-Hop", "Electronic"],
+        "Games": ["Action", "Adventure", "Strategy", "Role-Playing", "Sports", "Puzzle"]
+    },
+    "Science": {
+        "Space": ["Astronomy", "Astrophysics", "Space Missions", "Exoplanets"],
+        "Physics": ["Quantum Physics", "Classical Mechanics", "Relativity", "Thermodynamics"],
+        "Biology": ["Genetics", "Evolution", "Ecology", "Microbiology"],
+        "Chemistry": ["Organic Chemistry", "Inorganic Chemistry", "Physical Chemistry", "Biochemistry"]
+    },
+    "Health": {
+        "Nutrition": ["Diet Plans", "Supplements", "Healthy Eating", "Special Diets"],
+        "Fitness": ["Workout Routines", "Yoga", "Cardio", "Strength Training", "Pilates"],
+        "Mental Health": ["Stress Management", "Mindfulness", "Therapy", "Self-Care"],
+        "Medical Science": ["General Medicine", "Surgery", "Pediatrics", "Cardiology"]
+    },
+    "Travel": {
+        "Destinations": ["Beach", "Mountain", "City", "Countryside", "Desert", "Island"],
+        "Travel Tips": ["Packing", "Safety", "Local Culture", "Travel Hacks"],
+        "Adventure": ["Hiking", "Scuba Diving", "Rock Climbing", "Skydiving"],
+        "Cultural": ["Food Tours", "Historical Sites", "Cultural Festivals", "Local Crafts"]
+    },
+    "Education": {
+        "Languages": ["English", "Spanish", "Mandarin", "French", "German"],
+        "Skills Development": ["Public Speaking", "Coding", "Leadership", "Project Management"],
+        "Online Courses": ["Programming", "Data Science", "Marketing", "Art"],
+        "Certification": ["Certification Prep", "Professional Skills", "Technical Certifications"]
+    },
+    "Lifestyle": {
+        "Fashion": ["Trends", "Designers", "Street Style", "Occasion Wear"],
+        "Home Decor": ["Interior Design", "DIY Projects", "Furniture", "Decor Ideas"],
+        "Personal Finance": ["Budgeting", "Investing", "Saving", "Debt Management"],
+        "Relationships": ["Dating", "Family", "Friendship", "Conflict Resolution"]
+    }
+}
